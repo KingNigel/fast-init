@@ -1,0 +1,28 @@
+{
+  "name": "fast-init",
+  "version": "1.0.0",
+  "description": "package.json init",
+  "main": "fi.js",
+  "keywords": [
+    "package.json",
+    "init",
+    "fast-init",
+    "fast"
+  ],
+  "author": "KingNigel",
+  "preferGlobal": "true",
+  "bin": {
+    "fi": "fi.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KingNigel/http-poster.git"
+  },
+  "bugs": {
+    "url": "https://github.com/KingNigel/http-poster/issues"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^2.9.0"
+  }
+}
