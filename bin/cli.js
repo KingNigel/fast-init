@@ -4,6 +4,7 @@ var install=require('../lib/install');
 var list=require('../lib/list');
 var installDescription='The path must be the true path，If [templetName] is not set,the filename will be the default name.';
 var listDescription='List the templet.';
+var uninstallDescription='The alias must be the true alias，you can see it by \'-l\'.';
 
 // function range(val) {
 //   return val.split('..').map(Number);
@@ -25,8 +26,9 @@ var listDescription='List the templet.';
 program
   .version('1.0.0')
   .usage('[options]')
-  .option('-i, --install <path>@[templetName]',installDescription, install)
-  .option('-l, --list ',listDescription, list.showList());
+  .option('-i, --install <path>@[alias]',installDescription, install)
+  .option('-l, --list ',listDescription, list.showList)
+  .option('-u, --uninstall <alias>',uninstallDescription, list.del)
   
 
 
