@@ -1,10 +1,11 @@
 {
   "name": "fast-init",
-  "version": "1.0.0",
-  "description": "package.json init",
+  "version": "0.0.1",
+  "description": "templet init tool",
   "main": "fi.js",
   "keywords": [
-    "package.json",
+    "template",
+    "templet",
     "init",
     "fast-init",
     "fast"
