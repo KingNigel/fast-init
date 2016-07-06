@@ -13,20 +13,14 @@ test('install', function * (t) {
 });
 test('delete', function * (t) {
     const commit1 = yield exec('node fi.js -i package.json@delete');
-     const list=JSON.parse(fs.readFileSync('./list.json','utf8'));
-     console.log(list);
+     let list=JSON.parse(fs.readFileSync('./list.json','utf8'));
      t.true(fs.accessSync('./templet/delete.json')===undefined);
      t.true(list.delete.fileName==='package.json'&&list.delete.trueName==='delete.json')     
      const commit2 = yield exec('node fi.js -d delete');
-     t.false(false);
-     const err = new Error('The message');
-    
-     var a=function (params) {
-          throw err;
-     }
-     t.notThrows(a());
-    //  t.throws(fs.access('./templet/delete.json',(err)=>{
-    //       if(err) throw err;
-    //  }));
-     //t.true(list.delete===undefined);
+      fs.access('./templet/delete.json',(err)=>{
+          if(err) t.pass();
+          else t.fail();
+      });
+      list=JSON.parse(fs.readFileSync('./list.json','utf8'));
+      t.true(list.delete===undefined);
 });
