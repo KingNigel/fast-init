@@ -1,4 +1,3 @@
 # fast-init
-```
-package.json模板工具，快速构建package.json
-```
+快速打造自己的模板，创建文件。
+
