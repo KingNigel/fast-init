@@ -32,7 +32,6 @@
     "co-exec":"^1.1.0"
   },
   "dependencies": {
-    "commander": "^2.9.0",
-    "co-exec":"^1.1.0"
+    "commander": "^2.9.0"
   }
 }
