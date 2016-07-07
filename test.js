@@ -3,8 +3,8 @@ const fs = require('fs');
 const exec = require('co-exec');
 
 test('install', function* (t) {
-    const commit1 = yield exec('node fi.js -i package.json@test');
-    const commit2 = yield exec('node fi.js -i package.json');
+    const command1 = yield exec('node fi.js -i package.json@test');
+    const command2 = yield exec('node fi.js -i package.json');
     setTimeout(function () {
         t.true(fs.accessSync('./templet/test.json') === undefined);
         t.true(fs.accessSync('./templet/package.json') === undefined);
@@ -14,11 +14,11 @@ test('install', function* (t) {
     }, 1000);
 });
 test('delete', function* (t) {
-    const commit1 = yield exec('node fi.js -i package.json@delete');
+    const command1 = yield exec('node fi.js -i package.json@delete');
     let list = JSON.parse(fs.readFileSync('./list.json', 'utf8'));
     t.true(fs.accessSync('./templet/delete.json') === undefined);
     t.true(list.delete.fileName === 'package.json' && list.delete.trueName === 'delete.json')
-    const commit2 = yield exec('node fi.js -d delete');
+    const command2 = yield exec('node fi.js -d delete');
     setTimeout(function () {
         fs.access('./templet/delete.json', (err) => {
             if (err) t.pass();
@@ -29,9 +29,9 @@ test('delete', function* (t) {
     }, 2000);
 });
 test('use', function* (t) {
-    const commit1 = yield exec('node fi.js -u i');
-    const commit2 = yield exec('node fi.js -u i@initAlias');
-    const commit3 = yield exec('node fi.js -u i@initAlias.js');
+    const command1 = yield exec('node fi.js -u i');
+    const command2 = yield exec('node fi.js -u i@initAlias');
+    const command3 = yield exec('node fi.js -u i@initAlias.js');
      setTimeout(function () {
          fs.access('./init.json', (err) => {
              if (err) t.fail();
@@ -46,4 +46,8 @@ test('use', function* (t) {
              else t.pass();
          });
      }, 3000);
+});
+test('list', function* (t) {
+    const command = yield exec('node fi.js -l');
+    t.pass();
 });
