@@ -7,4 +7,4 @@ node_js:
   - 4
 script: 
   - npm test
-after_script: "npm install coveralls && cd test-cov &&  cat coverage.lcov | ../node_modules/coveralls/bin/coveralls.js && cd .. && rm -rf ./test-cov && rm -rf ./test-app"
+after_success:- './node_modules/.bin/nyc report --reporter=text-lcov | ./node_modules/.bin/coveralls'
