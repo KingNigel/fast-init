@@ -7,7 +7,7 @@ test('install', function * (t) {
      const commit2 = yield exec('node fi.js -i package.json');
      t.true(fs.accessSync('./templet/test.json')===undefined);
      t.true(fs.accessSync('./templet/package.json')===undefined);
-     const list=JSON.parse(fs.readFileSync('./list.json','utf8'));
+     let list=JSON.parse(fs.readFileSync('./list.json','utf8'));
      t.true(list.test.fileName==='package.json'&&list.test.trueName==='test.json')
      t.true(list.package.fileName==='package.json'&&list.package.trueName==='package.json')
 });
