@@ -16,8 +16,10 @@ test('install', function* (t) {
 test('delete', function* (t) {
     const command1 = yield exec('node fi.js -i package.json@delete');
     let list = JSON.parse(fs.readFileSync('./list.json', 'utf8'));
-    t.true(fs.accessSync('./templet/delete.json') === undefined);
-    t.true(list.delete.fileName === 'package.json' && list.delete.trueName === 'delete.json')
+    setTimeout(function () {
+        t.true(fs.accessSync('./templet/delete.json') === undefined);
+        t.true(list.delete.fileName === 'package.json' && list.delete.trueName === 'delete.json')
+    }, 1000);
     const command2 = yield exec('node fi.js -d delete');
     setTimeout(function () {
         fs.access('./templet/delete.json', (err) => {
@@ -32,20 +34,20 @@ test('use', function* (t) {
     const command1 = yield exec('node fi.js -u i');
     const command2 = yield exec('node fi.js -u i@initAlias');
     const command3 = yield exec('node fi.js -u i@initAlias.js');
-     setTimeout(function () {
-         fs.access('./init.json', (err) => {
-             if (err) t.fail();
-             else t.pass();
-         });
-         fs.access('./initAlias.json', (err) => {
-             if (err) t.fail();
-             else t.pass();
-         });
-         fs.access('./initAlias.js', (err) => {
-             if (err) t.fail();
-             else t.pass();
-         });
-     }, 3000);
+    setTimeout(function () {
+        fs.access('./init.json', (err) => {
+            if (err) t.fail();
+            else t.pass();
+        });
+        fs.access('./initAlias.json', (err) => {
+            if (err) t.fail();
+            else t.pass();
+        });
+        fs.access('./initAlias.js', (err) => {
+            if (err) t.fail();
+            else t.pass();
+        });
+    }, 3000);
 });
 test('list', function* (t) {
     const command = yield exec('node fi.js -l');
