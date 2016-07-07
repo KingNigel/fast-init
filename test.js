@@ -14,22 +14,15 @@ test('install', function* (t) {
     }, 1000);
 });
 test('delete', function* (t) {
-    const command1 = yield exec('node fi.js -i package.json@delete');
-    let list = JSON.parse(fs.readFileSync('./list.json', 'utf8'));
+    const command2 = yield exec('node fi.js -d i');
     setTimeout(function () {
-        t.true(fs.accessSync('./templet/delete.json') === undefined);
-        t.true(list.delete.fileName === 'package.json' && list.delete.trueName === 'delete.json')
-        const command2 = yield exec('node fi.js -d delete');
-        setTimeout(function () {
-            fs.access('./templet/delete.json', (err) => {
-                if (err) t.pass();
-                else t.fail();
-            });
-            list = JSON.parse(fs.readFileSync('./list.json', 'utf8'));
-            t.true(list.delete === undefined);
-        }, 1000);
-    }, 1000);
-
+        fs.access('./templet/i.json', (err) => {
+            if (err) t.pass();
+            else t.fail();
+        });
+        list = JSON.parse(fs.readFileSync('./list.json', 'utf8'));
+        t.true(list.i === undefined);
+    }, 2000);
 });
 test('use', function* (t) {
     const command1 = yield exec('node fi.js -u i');

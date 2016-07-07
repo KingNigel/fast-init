@@ -16,7 +16,8 @@
     "fi": "fi.js"
   },
   "scripts": {
-     "test": "ava"
+    "test": "nyc ava",
+    "report": "nyc report --reporter=html"
   },
   "repository": {
     "type": "git",
@@ -27,12 +28,14 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "commander": "^2.9.0",
     "ava": "^0.11.0",
-    "co-exec":"^1.1.0"
+    "co-exec": "^1.1.0",
+    "commander": "^2.9.0",
+    "coveralls": "^2.11.9",
+    "nyc": "^6.6.1"
   },
   "dependencies": {
     "commander": "^2.9.0",
-    "co-exec":"^1.1.0"
+    "co-exec": "^1.1.0"
   }
 }
