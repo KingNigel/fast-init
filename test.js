@@ -21,6 +21,6 @@ test('delete', function * (t) {
           if(err) t.pass();
           else t.fail();
       });
-      list=JSON.parse(fs.readFileSync('./list.json','utf8'));
-      t.true(list.delete===undefined);
+      let list2 =JSON.parse(fs.readFileSync('./list.json','utf8'));
+      t.true(list2.delete===undefined);
 });
