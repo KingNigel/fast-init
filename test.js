@@ -20,7 +20,6 @@ test('delete', function * (t) {
       fs.access('./templet/delete.json',(err)=>{
           if(err) t.pass();
           else t.fail();
-          
           let list2 =JSON.parse(fs.readFileSync('./list.json','utf8'));
           t.true(list2.delete===undefined);
       });

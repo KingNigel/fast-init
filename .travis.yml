@@ -1,5 +1,4 @@
 sudo: false
-repo_token: Yt71K1wQ83RTyiSxvVwkgnrYng9rQTFQn
 language: node_js
 node_js:
   - stable
