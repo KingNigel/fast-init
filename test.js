@@ -16,10 +16,8 @@ test('install', function* (t) {
 test('delete', function* (t) {
     const command1 = yield exec('node fi.js -i package.json@delete');
     let list = JSON.parse(fs.readFileSync('./list.json', 'utf8'));
-    setTimeout(function () {
-        t.true(fs.accessSync('./templet/delete.json') === undefined);
-        t.true(list.delete.fileName === 'package.json' && list.delete.trueName === 'delete.json')
-    }, 1000);
+    t.true(fs.accessSync('./templet/delete.json') === undefined);
+    t.true(list.delete.fileName === 'package.json' && list.delete.trueName === 'delete.json')
     const command2 = yield exec('node fi.js -d delete');
     setTimeout(function () {
         fs.access('./templet/delete.json', (err) => {
