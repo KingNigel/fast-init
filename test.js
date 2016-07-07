@@ -28,3 +28,22 @@ test('delete', function* (t) {
         t.true(list.delete === undefined);
     }, 2000);
 });
+test('use', function* (t) {
+    const commit1 = yield exec('node fi.js -u i');
+    const commit2 = yield exec('node fi.js -u i@initAlias');
+    const commit3 = yield exec('node fi.js -u i@initAlias.js');
+     setTimeout(function () {
+         fs.access('./init.json', (err) => {
+             if (err) t.fail();
+             else t.pass();
+         });
+         fs.access('./initAlias.json', (err) => {
+             if (err) t.fail();
+             else t.pass();
+         });
+         fs.access('./initAlias.js', (err) => {
+             if (err) t.fail();
+             else t.pass();
+         });
+     }, 3000);
+});
