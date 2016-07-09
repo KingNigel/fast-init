@@ -19,7 +19,10 @@
                                   A file well be created，[name] as a filename will be created.
 ```
 ###1. fi -i <path>@[alias] 加载文件模板
+- path：要装载的模板路径，路径必须正确。
+- alias：包的别名，模板装载后的使用可以通过别名简化操作
 ###2. fi -l 查看模板列表
+- 将fi的命令输出到
 ###3. fi -d <alias>  删除模板
 ###4. fi -u <alias>@[name] 使用模板
 
