@@ -1,6 +1,6 @@
 {
   "name": "fast-init",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "templet init tool",
   "main": "fi.js",
   "keywords": [
@@ -32,10 +32,12 @@
     "co-exec": "^1.1.0",
     "commander": "^2.9.0",
     "coveralls": "^2.11.9",
-    "nyc": "^6.6.1"
+    "nyc": "^6.6.1",
+    "tpl_apply": "^1.0.5"
   },
   "dependencies": {
+    "co-exec": "^1.1.0",
     "commander": "^2.9.0",
-    "co-exec": "^1.1.0"
+    "tpl_apply": "^1.0.5"
   }
 }
