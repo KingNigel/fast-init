@@ -1,6 +1,6 @@
 {
   "name": "fast-init",
-  "version": "0.0.2",
+  "version": "0.0.1",
   "description": "templet init tool",
   "main": "fi.js",
   "keywords": [
@@ -28,12 +28,14 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "ava": "^0.17.0",
+    "ava": "^0.11.0",
+    "co-exec": "^1.1.0",
     "commander": "^2.9.0",
     "coveralls": "^2.11.9",
     "nyc": "^6.6.1"
   },
   "dependencies": {
-    "commander": "^2.9.0"
+    "commander": "^2.9.0",
+    "co-exec": "^1.1.0"
   }
 }
