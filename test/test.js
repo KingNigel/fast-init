@@ -2,8 +2,8 @@ import test from 'ava';
 const fs = require('fs');
 const exec = require('child_process').execSync;
 test.serial('install', (t) => {
-    exec('node fi.js -i package.json@test');
-    exec('node fi.js -i package.json');
+    exec('node f.js -i package.json@test');
+    exec('node f.js -i package.json');
     t.true(fs.accessSync('./templet/test.json') === undefined);
     t.true(fs.accessSync('./templet/package.json') === undefined);
     let list = JSON.parse(fs.readFileSync('./list.json', 'utf8'));
@@ -11,8 +11,8 @@ test.serial('install', (t) => {
     t.true(list.package.fileName === 'package.json' && list.package.trueName === 'package.json');
 });
 test.serial('delete', (t) => {
-    exec('node fi.js -i package.json@delete');
-    exec('node fi.js -d delete');
+    exec('node f.js -i package.json@delete');
+    exec('node f.js -d delete');
     fs.access('./templet/delete.json', (err) => {
         if (err) t.pass();
         else t.fail();
@@ -21,9 +21,9 @@ test.serial('delete', (t) => {
     t.true(list.delete === undefined);
 });
 test.serial('use', (t) => {
-    exec('node fi.js -u i');
-    exec('node fi.js -u i@initAlias');
-    exec('node fi.js -u i@initAlias.js');
+    exec('node f.js -u i');
+    exec('node f.js -u i@initAlias');
+    exec('node f.js -u i@initAlias.js');
     fs.access('./init.json', (err) => {
         if (err) t.fail();
         else t.pass();
@@ -38,6 +38,6 @@ test.serial('use', (t) => {
     });;
 });
 test.serial('list', (t) => {
-    exec('node fi.js -l');
+    exec('node f.js -l');
     t.pass();
 });
