@@ -1,6 +1,6 @@
 {
   "name": "fast-init",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "templet init tool",
   "main": "fi.js",
   "keywords": [
