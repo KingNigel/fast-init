@@ -4,6 +4,10 @@
 
 快速打造自己的模板，快速创建文件。
 v0.1.0版重大修改，将原来的工具使用fi命令修改f命令。
+## 安装
+```
+  npm install -g fast-init
+```
 ## 命令
 ```
   Usage: f [options]
